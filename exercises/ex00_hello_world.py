@@ -1,2 +1,2 @@
-_author_ = "730554383"
+__author__ = "730554383"
 print("Hello, world.")
