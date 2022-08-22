@@ -1,3 +1,4 @@
+"""Chardle!!!!!!"""
 __author__ = "730554383"
 
 word: str = input("Enter a 5-character word: ")
@@ -30,6 +31,6 @@ if word[4] == char:
 if count == 0:
     print("No instances of " + char + " found in " + word)
 elif count == 1:
-    print("No instances of " + char + " found in " + word)
+    print("1 instance of " + char + " found in " + word)
 else:
     print(count, "instances of " + char + " found in " + word)
