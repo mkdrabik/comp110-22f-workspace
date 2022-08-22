@@ -13,21 +13,23 @@ print("Searching for " + char + " in " + word)
 count: int = 0
 
 if word[0:1] == char: 
-    print(char+ " found at index 0")
+    print(char + " found at index 0")
     count = count + 1
 if word[1:2] == char: 
-    print(char+ " found at index 1")
+    print(char + " found at index 1")
     count = count + 1
 if word[2:3] == char: 
-    print(char+ " found at index 2")
+    print(char + " found at index 2")
     count = count + 1
 if word[3:4] == char: 
-    print(char+ " found at index 3")
+    print(char + " found at index 3")
     count = count + 1
 if word[4] == char: 
-    print(char+ " found at index 4")
+    print(char + " found at index 4")
     count = count + 1
 if count == 0:
     print("No instances of " + char + " found in " + word )
+elif count == 1:
+    print("No instances of " + char + " found in " + word )
 else:
-    print(count,"instances of " + char + " found in " + word)
+    print(count, "instances of " + char + " found in " + word)
