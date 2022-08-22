@@ -28,8 +28,8 @@ if word[4] == char:
     print(char + " found at index 4")
     count = count + 1
 if count == 0:
-    print("No instances of " + char + " found in " + word )
+    print("No instances of " + char + " found in " + word)
 elif count == 1:
-    print("No instances of " + char + " found in " + word )
+    print("No instances of " + char + " found in " + word)
 else:
     print(count, "instances of " + char + " found in " + word)
