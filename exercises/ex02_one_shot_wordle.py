@@ -1,4 +1,4 @@
-"""One shot wordle"""
+"""One shot wordle!!!!"""
 __author__ = "730554383"
 
 secret: str = "python"
@@ -11,7 +11,7 @@ i: int = 0
 emoji: str = ""
 
 while len(guess) != len(secret):
-   guess = input("That was not 6 letters! Try again: ") 
+   guess = input(f"That was not {len(secret)} letters! Try again: ") 
 
 while i < len(secret):  
     v: int = 0
@@ -23,13 +23,13 @@ while i < len(secret):
             v += 1
     if guess[i] == secret[i] and present == True:
         emoji += green_box
-        i+=1
+        i += 1
     elif present == True:
         emoji += yellow_box
-        i+=1
+        i += 1
     else:
         emoji += white_box
-        i+=1
+        i += 1
 
 
 print(emoji)
