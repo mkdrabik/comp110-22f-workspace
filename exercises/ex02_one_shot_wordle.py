@@ -4,9 +4,9 @@ __author__ = "730554383"
 secret: str = "python"
 guess: str = input(f"What is your {len(secret)}-letter guess? ")
 
-WHITE_BOX: str = "\U00002B1C"
-GREEN_BOX: str = "\U0001F7E9"
-YELLOW_BOX: str = "\U0001F7E8"
+white_box: str = "\U00002B1C"
+green_box: str = "\U0001F7E9"
+yellow_box: str = "\U0001F7E8"
 i: int = 0
 emoji: str = ""
 
@@ -22,13 +22,13 @@ while i < len(secret):
         else:
             v += 1
     if guess[i] == secret[i] and present == True:
-        emoji += GREEN_BOX
+        emoji += green_box
         i+=1
     elif present == True:
-        emoji += YELLOW_BOX
+        emoji += yellow_box
         i+=1
     else:
-        emoji += WHITE_BOX
+        emoji += white_box
         i+=1
 
 
