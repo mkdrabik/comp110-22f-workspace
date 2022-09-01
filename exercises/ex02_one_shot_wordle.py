@@ -16,15 +16,15 @@ while len(guess) != len(secret):
 while i < len(secret):  
     v: int = 0
     present: bool = False
-    while present == False and v < len(secret):
+    while not present and v < len(secret):
         if guess[i] == secret[v]:
             present = True
         else:
             v += 1
-    if guess[i] == secret[i] and present == True:
+    if guess[i] == secret[i] and present:
         emoji += green_box
         i += 1
-    elif present == True:
+    elif present:
         emoji += yellow_box
         i += 1
     else:
