@@ -5,8 +5,10 @@ def my_max(a: int, b: int) -> int:
 
     if a >= b:
         return a
-    else:
-        return b
+    
+    return b
 
-results: int= my_max(10, 4)
+x: int = 7
+y: int = 6
+results: int= my_max(y, x)
 print(results)
