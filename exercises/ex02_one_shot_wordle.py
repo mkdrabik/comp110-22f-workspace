@@ -11,7 +11,7 @@ i: int = 0
 emoji: str = ""
 
 while len(guess) != len(secret):
-   guess = input(f"That was not {len(secret)} letters! Try again: ") 
+    guess = input(f"That was not {len(secret)} letters! Try again: ") 
 
 while i < len(secret):  
     v: int = 0
