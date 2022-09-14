@@ -3,11 +3,12 @@ __author__ = "730554383"
 
 
 def all(numbers: list[int], num: int) -> bool:
-    """Transverses a list and returns if all the ints in the list are the same as the given"""
+    """Transverses a list and returns if all the ints in the list are the same as the given."""
+    assert len(numbers) > 0
     i: int = 0
     same: bool = True
 
-    while i < len(numbers)-1:
+    while i < len(numbers) - 1:
         if numbers[i] == num:
             i += 1
         else:
@@ -17,7 +18,7 @@ def all(numbers: list[int], num: int) -> bool:
 
 
 def max(values: list[int]) -> int:
-    """Finds max value in a list"""
+    """Finds max value in a list."""
     if len(values) == 0:
         raise ValueError("max() arg is an empty List")
 
@@ -34,19 +35,16 @@ def max(values: list[int]) -> int:
 
 
 def is_equal(user_values1: list[int], user_values2: list[int]) -> bool:
-    """Transverses both lists to see if each value equals each other"""
-
+    """Transverses both lists to see if each value equals each other."""
+    assert len(user_values1) == len(user_values2)
     v: int = 0
     equal: bool = True
 
-    while v < len(user_values1)-1:
+    while v < len(user_values1) - 1:
         if user_values1[v] == user_values2[v]:
             v += 1 
         else:
             equal = False
             v = len(user_values1)
     return equal
-
-
-
 
