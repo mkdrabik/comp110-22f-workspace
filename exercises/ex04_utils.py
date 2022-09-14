@@ -4,7 +4,8 @@ __author__ = "730554383"
 
 def all(numbers: list[int], num: int) -> bool:
     """Transverses a list and returns if all the ints in the list are the same as the given."""
-    assert len(numbers) > 0
+    if len(numbers) == 0:
+        return False
     i: int = 0
     same: bool = True
 
@@ -36,7 +37,8 @@ def max(values: list[int]) -> int:
 
 def is_equal(user_values1: list[int], user_values2: list[int]) -> bool:
     """Transverses both lists to see if each value equals each other."""
-    assert len(user_values1) == len(user_values2)
+    if len(user_values1) != len(user_values2):
+        return False
     v: int = 0
     equal: bool = True
 
@@ -47,4 +49,3 @@ def is_equal(user_values1: list[int], user_values2: list[int]) -> bool:
             equal = False
             v = len(user_values1)
     return equal
-
