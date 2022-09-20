@@ -3,4 +3,4 @@
 
 def sum(xs: list[float]) -> float:
     """Computer the sum of a list."""
-    return -1.0
+    return 0.0
