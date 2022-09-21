@@ -52,9 +52,3 @@ def sub(xs: list[int], low: int, high: int) -> list[int]:
         nlist.append(xs[i])
         i += 1
     return nlist
-
-
-
-
-
-

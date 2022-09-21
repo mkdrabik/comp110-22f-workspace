@@ -30,7 +30,7 @@ def test_both_lists_full() -> None:
 
 
 def test_one_full_one_empty() -> None: 
-    """Tests that a list is formed even if one list is empty"""
+    """Tests that a list is formed even if one list is empty."""
     xs: list[int] = [1, 2, 3]
     xy: list[int] = list()
     assert concat(xs, xy) == [1, 2, 3]
@@ -57,5 +57,5 @@ def test_extreme_bounds() -> None:
 
 def test_normal_bounds() -> None:
     """Tests that the function works as assumed when correct bounds are given."""
-    xs: list[int] = [1, 2, 3, 4, 5, 6,]
+    xs: list[int] = [1, 2, 3, 4, 5, 6]
     assert sub(xs, 1, 5) == [2, 3, 4, 5]
