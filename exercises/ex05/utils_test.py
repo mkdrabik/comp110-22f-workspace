@@ -43,7 +43,19 @@ def test_both_full() -> None:
     assert concat(xs, xy) == [1, 2, 3, 4, 5, 6]
 
 
-def test_boudns() -> None:
-    """Tests to see that a list is returned when the low argument is negative and high argument is higher then the length of the list."""
+def test_high_smaller_then_low() -> None:
+    """Tests to make sure function still works when bounds are weird."""
+    xs: list[int] = [1, 2, 3]
+    assert sub(xs, 0, -1) == []
+
+
+def test_extreme_bounds() -> None:
+    """Tests to make sure a function is returned when both bounds are out of range."""
     xs: list[int] = [1, 2, 3]
     assert sub(xs, -1, 4) == [1, 2, 3]
+
+
+def test_normal_bounds() -> None:
+    """Tests that the function works as assumed when correct bounds are given."""
+    xs: list[int] = [1, 2, 3, 4, 5, 6,]
+    assert sub(xs, 1, 5) == [2, 3, 4, 5]

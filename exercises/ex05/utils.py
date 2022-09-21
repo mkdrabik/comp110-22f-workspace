@@ -45,11 +45,12 @@ def sub(xs: list[int], low: int, high: int) -> list[int]:
 
     i: int = low
 
-    if low < 0:
+    if i < 0:
         i = 0
 
-    while i < high - 1 and i < len(xs):
+    while i < len(xs) and i < high:
         nlist.append(xs[i])
+        i += 1
     return nlist
 
 
