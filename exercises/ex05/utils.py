@@ -6,6 +6,10 @@ __author__ = "730554383"
 def only_evens(xs: list[int]) -> list[int]:
     """Given a list of ints returns a new list of only even values."""
     nlist: list[int] = list()
+    
+    if len(xs) == 0:
+        return nlist
+        
     i: int = 0
     while i < len(xs):
         if xs[i] % 2 == 0:
