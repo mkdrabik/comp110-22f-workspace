@@ -1,6 +1,6 @@
 """An example of for in syntax."""
 
-names: list[str] = ["Kris, Mason, Riley, Arun"]
+names: list[str] = ["Kris", "Mason", "Riley", "Arun"]
 
 # Example of iterating through names using while
 print("While output")
