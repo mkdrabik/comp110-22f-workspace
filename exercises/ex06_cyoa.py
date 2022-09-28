@@ -2,11 +2,15 @@
 __author__ = "730554383"
 
 from random import randint
+
 player: str = ""
 enemy: str = ""
 points: int = 5
 enemy_points: int = 5
+winner: bool = True
 ENEMY_ATTACK_OPTIONS: list[str] = ["kick", "tackle", "punch"]
+CELEBRATION: str = "\U0001F973"
+LOSS: str = "\U00002639"
 
 
 def greet() -> None:
@@ -57,20 +61,22 @@ def punch() -> None:
         print(f"Current scores: {player} = {points} || {enemy} = {enemy_points}")
 
 
-def tackle(x: int) -> int:
+def tackle(x: int, epoints: int, ppoints: int) -> int:
     """Option when user chooses tackle."""
     global enemy_points
     global points
+    global winner
     print(f"{player} has chosen to tackle.")
     y: int = randint(0, 100)
-    if x > y:
+    if x >= y:
         print(f"{player} tackles the {enemy} hurting it")
         point_deduction: int = randint(2,4)
-        return point_deduction
+        return epoints - point_deduction
     else:
         print(f"{enemy} attacks {player} with a punch and hurts {player}")
         point_deduction: int = 1
-        return 1
+        winner = False
+        return ppoints - point_deduction
 
 def run_away() -> None:
     """Options when user wants to quit. """
@@ -86,6 +92,8 @@ def main() -> None:
     global enemy_points
     while points > 0 and enemy_points > 0:
         attack_choice: str = input("Choose an attack (kick, tackle, or punch), or run away: ")
+        while attack_choice != "kick" and attack_choice != "punch" and attack_choice != "tackle" and attack_choice != "run away":
+            attack_choice = input("Not a valid answer, please enter another choice: ")
         if attack_choice == "kick":
             kick()
         elif attack_choice == "punch":
@@ -94,21 +102,19 @@ def main() -> None:
             num: int = int(input("Please pick a number 0 to 100: "))
             while num < 0 or num > 100:
                 num = int(input("Please pick a number 0 to 100: "))
-            loss: int = tackle(num)
-            if loss > 1:
-                enemy_points -= loss
+            point_change: int = tackle(num, enemy_points, points)
+            if winner == True:
+                enemy_points = point_change
             else: 
-                points -= loss
+                points = point_change
             print(f"Current scores: {player} = {points} || {enemy} = {enemy_points}")
         elif attack_choice == "run away":
             run_away()
-        else:
-            attack_choice = input("Not a valid answer, please enter another choice: ")
     if points == 0:
-        print(f"{player} lost the fight")
+        print(f"{player} lost the fight {LOSS}")
         quit()
     else: 
-        print(f"{player} has won the fight with {points} points left, congrats. ")
+        print(f"{player} has won the fight with {points} points left, congrats. {CELEBRATION} ")
         quit()
     
 
