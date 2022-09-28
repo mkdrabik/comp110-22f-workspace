@@ -26,31 +26,81 @@ def kick() -> None:
     i: int = randint(1, 2)
     attack: str = ENEMY_ATTACK_OPTIONS[i]
     if attack == "tackle":
-        print(f"{PLAYER_NAME} lands a blow and hurts the {ENEMY_NAME}")
+        print(f"{PLAYER_NAME} kicks the {ENEMY_NAME} hurting it")
         enemy_points -= 1
-        print(f"Current scores: {PLAYER_NAME} = {points}, {ENEMY_NAME} = {enemy_points}")
+        print(f"Current scores: {PLAYER_NAME} = {points} || {ENEMY_NAME} = {enemy_points}")
     else:
-        print(f"{ENEMY_NAME} lands a blow and hurts {PLAYER_NAME}")
+        print(f"{ENEMY_NAME} attacks {PLAYER_NAME} with a {attack} and lands a blow")
         points -= 1
-        print(f"Current scores: {PLAYER_NAME} = {points}, {ENEMY_NAME} = {enemy_points}")
+        print(f"Current scores: {PLAYER_NAME} = {points} || {ENEMY_NAME} = {enemy_points}")
+
+
+def punch() -> None:
+    """Option when user chooses punch."""
+    global enemy_points
+    global points
+    print(f"{PLAYER_NAME} has chosen to punch.")
+    i: int = randint(0, 1)
+    attack: str = ENEMY_ATTACK_OPTIONS[i]
+    if attack == "kick":
+        print(f"{PLAYER_NAME} punches the {ENEMY_NAME} hurting it")
+        enemy_points -= 1
+        print(f"Current scores: {PLAYER_NAME} = {points} || {ENEMY_NAME} = {enemy_points}")
+    else:
+        print(f"{ENEMY_NAME} attacks {PLAYER_NAME} with a {attack} and lands a blow")
+        points -= 1
+        print(f"Current scores: {PLAYER_NAME} = {points} || {ENEMY_NAME} = {enemy_points}")
+
+
+def tackle() -> None:
+    """Option when user chooses tackle."""
+    global enemy_points
+    global points
+    print(f"{PLAYER_NAME} has chosen to tackle.")
+    options: list[int] = [0, 2]
+    i: int = randint(0, 1)
+    attack: str = ENEMY_ATTACK_OPTIONS[options[i]]
+    if attack == "punch":
+        print(f"{PLAYER_NAME} tackles the {ENEMY_NAME} hurting it")
+        enemy_points -= 1
+        print(f"Current scores: {PLAYER_NAME} = {points} || {ENEMY_NAME} = {enemy_points}")
+    else:
+        print(f"{ENEMY_NAME} attacks {PLAYER_NAME} with a {attack} and lands a blow")
+        points -= 1
+        print(f"Current scores: {PLAYER_NAME} = {points} || {ENEMY_NAME} = {enemy_points}")
+
+
+def run_away() -> None:
+    """Options when user wants to quit. """
+    global points
+    print(f"{PLAYER_NAME} has chosen to run away and there for loses the game")
+    points = 0
+
 
 
 def main() -> None:
     greet()
-    print(PLAYER_NAME)
     global points
     global enemy_points
-    while points > 0 or enemy_points > 0:
+    while points > 0 and enemy_points > 0:
         attack_choice: str = input("Choose an attack (kick, tackle, or punch), or run away: ")
-        print(attack_choice)
         if attack_choice == "kick":
             kick()
-        #elif attack_choice == "punch":
-            #punch()
-        #elif attack_choice == "tackle":
-            #tackle()
+        elif attack_choice == "punch":
+            punch()
+        elif attack_choice == "tackle":
+            tackle()
+        elif attack_choice == "run away":
+            run_away()
         else:
-            attack_choice = input("Not a valid choice please try again: ")
+            attack_choice = input("Not a valid answer, please enter another choice: ")
+    if points == 0:
+        print("You have lost the fight")
+        quit()
+    else: 
+        print(f"{PLAYER_NAME} has won the fight with {points} points left, congrats. ")
+        quit()
+    
 
 
 if __name__ == "__main__":
