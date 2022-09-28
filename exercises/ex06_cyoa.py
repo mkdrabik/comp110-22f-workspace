@@ -94,7 +94,12 @@ def main() -> None:
             num: int = int(input("Please pick a number 0 to 100: "))
             while num < 0 or num > 100:
                 num = int(input("Please pick a number 0 to 100: "))
-            tackle(num)
+            loss: int = tackle(num)
+            if loss > 1:
+                enemy_points -= loss
+            else: 
+                points -= loss
+            print(f"Current scores: {player} = {points} || {enemy} = {enemy_points}")
         elif attack_choice == "run away":
             run_away()
         else:
