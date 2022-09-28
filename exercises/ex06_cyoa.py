@@ -17,7 +17,8 @@ def greet() -> None:
     enemy = input("Enter a creature you would like to fight: ")
     print(f"Welcome {player}, today you will be battling a {enemy}")
     print(f"You currently have {points} points and the {enemy} has {enemy_points} points")
-    print("You have three options to attack: punch, kick, and tackle. Punch beats kick, tackle beats punch, and kick beats tackle.")
+    print("You have three options to attack: punch, kick, and tackle. Punch beats kick, tackle sometimes beats punch, and kick beats tackle.")
+    print("If tackle beats punch bonus points are awarded.")
     print("You can also run away, but you lose the fight and end the game.")
     print(f"The goal is to outlast the {enemy} and win the game, good luck.")
 
@@ -56,23 +57,20 @@ def punch() -> None:
         print(f"Current scores: {player} = {points} || {enemy} = {enemy_points}")
 
 
-def tackle() -> None:
+def tackle(x: int) -> int:
     """Option when user chooses tackle."""
     global enemy_points
     global points
     print(f"{player} has chosen to tackle.")
-    options: list[int] = [0, 2]
-    i: int = randint(0, 1)
-    attack: str = ENEMY_ATTACK_OPTIONS[options[i]]
-    if attack == "punch":
+    y: int = randint(0, 100)
+    if x > y:
         print(f"{player} tackles the {enemy} hurting it")
-        enemy_points -= 1
-        print(f"Current scores: {player} = {points} || {enemy} = {enemy_points}")
+        point_deduction: int = randint(2,4)
+        return point_deduction
     else:
-        print(f"{enemy} attacks {player} with a {attack} and hurts {player}")
-        points -= 1
-        print(f"Current scores: {player} = {points} || {enemy} = {enemy_points}")
-
+        print(f"{enemy} attacks {player} with a punch and hurts {player}")
+        point_deduction: int = 1
+        return 1
 
 def run_away() -> None:
     """Options when user wants to quit. """
@@ -93,7 +91,10 @@ def main() -> None:
         elif attack_choice == "punch":
             punch()
         elif attack_choice == "tackle":
-            tackle()
+            num: int = int(input("Please pick a number 0 to 100: "))
+            while num < 0 or num > 100:
+                num = int(input("Please pick a number 0 to 100: "))
+            tackle(num)
         elif attack_choice == "run away":
             run_away()
         else:
