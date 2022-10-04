@@ -2,7 +2,7 @@
 
 
 # Declaring the type of a dictionary
-school: dict[str, int]
+schools: dict[str, int]
 
 # Intitialize to an empty dictionary
 schools = dict()
