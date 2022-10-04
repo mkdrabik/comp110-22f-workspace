@@ -2,7 +2,6 @@
 __author__ = "730554383"
 
 
-from unittest.mock import NonCallableMagicMock
 from dictionary import invert, favorite_color, count
 import pytest
 

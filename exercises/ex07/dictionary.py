@@ -3,7 +3,7 @@ __author__ = "730554383"
 
 
 def invert(x: dict[str, str]) -> dict[str, str]:
-    """Returns an inverted version of the inputed dicionary where the key becomes the value and vice versa"""
+    """Returns an inverted version of the inputed dicionary where the key becomes the value and vice versa."""
     names: dict[str, str] = {}
     vals: list[str] = list()
     i: int = 0
@@ -38,17 +38,16 @@ def favorite_color(x: dict[str, str]) -> str:
         colors.append(x[y])
     
     while i < len(colors):
-        v = 0
         while v < len(colors):
             if colors[i] == colors[v]:
                 count += 1
             v += 1
         nums.append(count)
         count = 0
+        v = 0
         i += 1
     
     i = 0
-    v = 0
     max = nums[i]
 
     while i < len(nums):
