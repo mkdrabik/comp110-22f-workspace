@@ -66,15 +66,16 @@ def tackle(x: int, epoints: int, ppoints: int) -> int:
     global enemy_points
     global points
     global winner
+    point_deduction: int = 0
     print(f"{player} has chosen to tackle.")
     y: int = randint(0, 100)
     if x >= y:
         print(f"{player} tackles the {enemy} hurting it")
-        point_deduction: int = randint(2, 4)
+        point_deduction = randint(2, 4)
         return epoints - point_deduction
     else:
         print(f"{enemy} attacks {player} with a punch and hurts {player}")
-        point_deduction: int = 1
+        point_deduction = 1
         winner = False
         return ppoints - point_deduction
 
