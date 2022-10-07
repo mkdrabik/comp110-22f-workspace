@@ -57,5 +57,5 @@ def test_all_equal() -> None:
 
 def test_empty() -> None:
     """Tests to ensure an empty dictionary is returned if list is empty."""
-    xs: list[int] = []
+    xs: list[str] = []
     assert count(xs) == {}

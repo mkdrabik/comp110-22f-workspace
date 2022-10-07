@@ -7,25 +7,25 @@ def invert(x: dict[str, str]) -> dict[str, str]:
     names: dict[str, str] = {}
     vals: list[str] = list()
     i: int = 0
-    v: int = 0
+    m: int = 0
     
     for y in x:
         vals.append(x[y])
     
     while i < len(vals):
-        v = i + 1
-        while v < len(vals):
-            if vals[i] == vals[v]:
+        m = i + 1
+        while m < len(vals):
+            if vals[i] == vals[m]:
                 raise KeyError
-            v += 1
+            m += 1
         i += 1
     
-    for i in x:
-        names[x[i]] = i
+    for p in x:
+        names[x[p]] = p
     return names
 
  
-def favorite_color(x: dict[str, str]) -> str:
+def favorite_color(y: dict[str, str]) -> str:
     """Returns a the color that appears most in a given dictionary."""
     colors: list[str] = []
     nums: list[int] = []  
@@ -34,8 +34,8 @@ def favorite_color(x: dict[str, str]) -> str:
     count: int = 0
     max: int = 0
     
-    for y in x:
-        colors.append(x[y])
+    for d in y:
+        colors.append(y[d])
     
     while i < len(colors):
         while v < len(colors):
@@ -57,7 +57,7 @@ def favorite_color(x: dict[str, str]) -> str:
     return colors[nums.index(max)]
 
 
-def count(x: list[str]) -> dict[str, int]:
+def count(z: list[str]) -> dict[str, int]:
     """Returns a dictionary based on how many times a string appears in a list."""
     vals: dict[str, int] = {}
     val: str = ""
@@ -65,15 +65,15 @@ def count(x: list[str]) -> dict[str, int]:
     v: int = 0
     appearences: int = 0
 
-    while i < len(x):
-        val = x[i]
+    while i < len(z):
+        val = z[i]
         v = i
 
         if val in vals: 
             i += 1
         else:
-            while v < len(x):
-                if x[i] == x[v]:
+            while v < len(z):
+                if z[i] == z[v]:
                     appearences += 1
                 v += 1
             
