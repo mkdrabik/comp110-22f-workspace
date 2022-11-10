@@ -4,10 +4,11 @@ from __future__ import annotations
 
 from typing import Union
 
-__author__ = "YOUR PID HERE"
+__author__ = "730554383"
 
 
 class Simpy:
+    """Class simpy."""
     values: list[float]
 
     def __init__(self, vals: list[float]) -> None:
@@ -59,7 +60,7 @@ class Simpy:
         return fin
 
     def __pow__(self, rhs: Union[float, Simpy]) -> Simpy:
-        """Creates a new simpy object that is the result of the two parameters being added."""
+        """Creates a new simpy object that is the result of one parameter being raised to the power of the other."""
         vals: list[int] = []    
         if isinstance(rhs, float):
             for v in self.values:
@@ -75,4 +76,38 @@ class Simpy:
 
         return fin
   
-        
+    def __eq__(self, rhs: Union[float, Simpy]) -> list[bool]:
+        """Creates a list of bools based on if each value is true or not."""
+        vals: list[bool] = []
+        if isinstance(rhs, float):
+            for i in self.values:
+                vals.append(i == rhs)
+        else:
+            assert len(self.values) == len(rhs.values)
+            for v in range(len(self.values)):
+                vals.append(self.values[v] == rhs.values[v])
+        return vals
+
+    def __gt__(self, rhs: Union[float, Simpy]) -> list[bool]:
+        """Creates a list of bools based on if each value is greater than the other."""
+        vals: list[bool] = []
+        if isinstance(rhs, float):
+            for i in self.values:
+                vals.append(i > rhs)
+        else:
+            assert len(self.values) == len(rhs.values)
+            for v in range(len(self.values)):
+                vals.append(self.values[v] > rhs.values[v])
+        return vals
+
+    def __getitem__(self, rhs: Union[int, list[bool]]) -> Union[float, Simpy]:
+        """Gets item in Simpy based on specified int or list of specified bools."""
+        if isinstance(rhs, int):
+            return self.values[rhs]
+        else:
+            assert len(self.values) == len(rhs)
+            val: Simpy = Simpy([])
+            for i in range(len(self.values)):
+                if rhs[i]:
+                    val.values.append(self.values[i])
+            return val
