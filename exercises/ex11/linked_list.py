@@ -38,7 +38,7 @@ def last(head: Optional[Node]) -> int:
     """Returns the last value of a Linked List, or raises a ValueError if the list is empty."""
     if head is None:
         raise ValueError("last cannot be called with None")
-    elif head.next == None:
+    elif head.next is None:
         return head.data
     else:
         return last(head.next)

@@ -49,7 +49,7 @@ def test_links() -> None:
 
 def test_empty_links() -> None:
     """Test to ensure none is returned if list is empty."""
-    assert linkify([]) == None
+    assert linkify([]) is None
 
 
 def test_scale() -> None:
@@ -59,4 +59,4 @@ def test_scale() -> None:
 
 def test_empty_scale() -> None:
     """Tests to ensure None is returned when linkfy is empty."""
-    assert scale(linkify([]), 2) == None
+    assert scale(linkify([]), 2) is None
