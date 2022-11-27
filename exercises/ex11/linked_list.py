@@ -84,6 +84,7 @@ def scale(head: Optional[Node], factor: int) -> Optional[Node]:
         head.data *= factor
         return head
     else:
-        n: Node = Node(head.data * factor, scale(head.next, factor))
-        return n
+        head.data *= factor
+        head.next = scale(head.next, factor)
+    return head
         
