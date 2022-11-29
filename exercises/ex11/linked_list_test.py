@@ -54,7 +54,7 @@ def test_empty_links() -> None:
 
 def test_scale() -> None:
     """Tests to ensure scaling is done properly."""
-    assert str(scale(linkify([1, 2, 3]), 2)) == "2 -> 4 -> 6 -> None"
+    assert str(scale(linkify([1, 2]), 2)) == "2 -> 4 -> None"
 
 
 def test_empty_scale() -> None:
